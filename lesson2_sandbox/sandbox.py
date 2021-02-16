@@ -239,14 +239,14 @@ def revers(array=[]):
     for i in range(len(array)//2):
         array[i], array[len(array)-i-1] = array[len(array)-i-1], array[i]
 
-from collections import namedtuple
-from operator import attrgetter
-
-Person = namedtuple('Person', ['name', 'age'])
-p_1 = Person("vasya", 25)
-p_2 = Person("kolya", 30)
-p_3 = Person("olya", 33)
-
-people = (p_1, p_2, p_3)
-
-print(sorted(people, key=attrgetter('age')))
+# from collections import namedtuple
+# from operator import attrgetter
+#
+# Person = namedtuple('Person', ['name', 'age'])
+# p_1 = Person("vasya", 25)
+# p_2 = Person("kolya", 30)
+# p_3 = Person("olya", 33)
+#
+# people = (p_1, p_2, p_3)
+#
+# print(sorted(people, key=attrgetter('age')))
