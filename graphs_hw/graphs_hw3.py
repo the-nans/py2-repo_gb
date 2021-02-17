@@ -86,7 +86,7 @@ def walk_dfs(graph, vertex, has_color=None, path=[]):
 
 n = 10
 
-g1 = dograph(n)
+g1 = {0: [2,3,4], 1:[2,3], 2:[4], 3:[0,1,2], 4:[0,1]}
 
 print('Работаем с таким вот графом: \n', g1)
 
