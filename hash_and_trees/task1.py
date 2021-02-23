@@ -8,7 +8,8 @@
 """
 import hashlib
 
-def substrings(s: str ):
+
+def substrings(s: str):
     assert len(s) > 1, 'Строка должна быть длиннее одного символа'
 
     subs = {}
@@ -21,23 +22,24 @@ def substrings(s: str ):
 
     # от скукотищи отмазались, давайте хэшить!
 
-    n_len = 2   # длина минимально интересной нам подстроки
+    n_len = 2  # длина минимально интересной нам подстроки
     pointer = 0  # курсор
 
     while pointer < len_s:
         while n_len < len_s:
             needle = hashlib.md5(s[pointer: pointer + n_len].encode('utf-8')).hexdigest()
-            if s[pointer:pointer + n_len] in subs:    # чтобы не плодить дубли, проверим, не встречали ли мы такой
-                break                            # подстроки раньше. Если встречали - выходим из цикла
-            subs[s[pointer:pointer + n_len]] = 0    # новое слово в словаре результатов
+            if s[pointer:pointer + n_len] in subs:  # чтобы не плодить дубли, проверим, не встречали ли мы такой
+                break  # подстроки раньше. Если встречали - выходим из цикла
+            subs[s[pointer:pointer + n_len]] = 0  # новое слово в словаре результатов
             for i in range(pointer, len_s):
-                if needle == hashlib.md5(s[i:i + n_len].encode('utf-8')).hexdigest(): # чёт нашли
+                if needle == hashlib.md5(s[i:i + n_len].encode('utf-8')).hexdigest():  # чёт нашли
                     subs[s[pointer:pointer + n_len]] += 1
-            n_len += 1      # увеличиваем длину искомой подстроки на один
+            n_len += 1  # увеличиваем длину искомой подстроки на один
         n_len = 2
-        pointer += 1    # сдвигаем курсор на одну позицию левее по строке
+        pointer += 1  # сдвигаем курсор на одну позицию левее по строке
 
     return subs
+
 
 s = input('Введите произвольную строку: ')
 # s = 'sobakasobaka'
